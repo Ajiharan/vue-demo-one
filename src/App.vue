@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <TodoList todos="todos" />
+    <TodoList :todos="todos" />
   </div>
 </template>
 
@@ -12,6 +12,7 @@ export default {
   components: {
     TodoList,
   },
+
   data() {
     return {
       todos: ["first", "second"],
