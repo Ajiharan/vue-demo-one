@@ -1,3 +1,4 @@
+// todo list component
 <template>
   <div>
     <li v-for="todo in todos" :key="todo">{{ todo }}</li>
