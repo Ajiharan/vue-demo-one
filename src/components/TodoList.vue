@@ -1,16 +1,32 @@
 // todo list component
 <template>
   <div>
-    <li v-for="todo in todos" :key="todo">{{ todo }}</li>
+  <form @submit.prevent="addTodo">
+    <input type='text' v-model="todo"/>
+    <button>Add button</button>
+  </form>
+    <li v-for="todo in newTodos" :key="todo">{{ todo }}</li>
   </div>
 </template>
 
 <script>
 export default {
   name: "TodoList",
+  todo:"",
   props: {
-    todos: Array,
+    todos: Array,  
   },
+  setup(props){
+    const newTodos=props?.todos||[];
+    return {
+      newTodos
+    }
+  },
+  methods:{
+    addTodo(){
+      this.newTodos.push(this.todo);
+    }
+  }
 };
 </script>
 
