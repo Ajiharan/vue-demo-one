@@ -1,4 +1,4 @@
-// todo list component
+// view todo list component
 <template>
   <div>
   <form @submit.prevent="addTodo">
