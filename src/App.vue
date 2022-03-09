@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <TodoComponent :todos="todos" />
+    <TodoComponent :todos="todos" disabled />
   </div>
 </template>
 
