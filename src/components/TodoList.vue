@@ -1,32 +1,26 @@
 // view todo list component
 <template>
   <div>
-  <form @submit.prevent="addTodo">
-    <input type='text' v-model="todo"/>
-    <button>Add button</button>
-  </form>
-    <li v-for="todo in newTodos" :key="todo">{{ todo }}</li>
+    <li v-for="(todo, i) in todos" :key="i">
+      <span>{{ todo }}</span>
+      <button @click="deleteTodo(i)">Delete</button>
+    </li>
   </div>
 </template>
 
 <script>
 export default {
   name: "TodoList",
-  todo:"",
+  todo: "",
   props: {
-    todos: Array,  
+    todos: Array,
   },
-  setup(props){
-    const newTodos=props?.todos||[];
-    return {
-      newTodos
-    }
+  emits: ["delete"],
+  methods: {
+    deleteTodo(index) {
+      this.$emit("delete", index);
+    },
   },
-  methods:{
-    addTodo(){
-      this.newTodos.push(this.todo);
-    }
-  }
 };
 </script>
 

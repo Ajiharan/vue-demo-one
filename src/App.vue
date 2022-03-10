@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <TodoComponent :todos="todos" disabled />
+    <TodoComponent />
   </div>
 </template>
 
@@ -11,12 +11,6 @@ export default {
   name: "App",
   components: {
     TodoComponent,
-  },
-
-  data() {
-    return {
-      todos: ["first", "second"],
-    };
   },
 };
 </script>

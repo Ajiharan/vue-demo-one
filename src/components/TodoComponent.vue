@@ -1,7 +1,7 @@
 <template>
   <div class="container">
-    <todo-form class="form"></todo-form>
-    <todo-list></todo-list>
+    <todo-form @updateTodoList="updateTodoList"></todo-form>
+    <todo-list :todos="todos" @delete="deleteTodo"></todo-list>
   </div>
 </template>
 
@@ -14,7 +14,19 @@ export default {
     "todo-form": TodoForm,
     "todo-list": TodoList,
   },
-  props: {},
+  data() {
+    return {
+      todos: [],
+    };
+  },
+  methods: {
+    updateTodoList(todo) {
+      this.todos.push(todo);
+    },
+    deleteTodo(index) {
+      this.todos.splice(index, 1);
+    },
+  },
 };
 </script>
 
